@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
-import 'home_screen.dart';
-import 'signup_screen.dart';
+import 'home.dart';
+import 'signup.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -36,16 +36,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Email'),
                     onSaved: (v) => email = v?.trim() ?? '',
-                    validator: (v) => v == null || v.isEmpty ? 'Enter email' : null,
+                    validator: (v) =>
+                        v == null || v.isEmpty ? 'Enter email' : null,
                   ),
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Password'),
                     obscureText: true,
                     onSaved: (v) => password = v ?? '',
-                    validator: (v) => v == null || v.isEmpty ? 'Enter password' : null,
+                    validator: (v) =>
+                        v == null || v.isEmpty ? 'Enter password' : null,
                   ),
                   const SizedBox(height: 12),
-                  if (error != null) Text(error!, style: const TextStyle(color: Colors.red)),
+                  if (error != null)
+                    Text(error!, style: const TextStyle(color: Colors.red)),
                   ElevatedButton(
                     onPressed: () async {
                       final form = _formKey.currentState!;
@@ -60,17 +63,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (res != null) {
                         setState(() => error = res);
                       } else {
-                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                        Navigator.of(context)
+                            .pushReplacementNamed(HomeScreen.routeName);
                       }
                     },
-                    child: loading ? const CircularProgressIndicator(color: Colors.white) : const Text('Login'),
+                    child: loading
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : const Text('Login'),
                   ),
                   TextButton(
-                    onPressed: () => Navigator.of(context).pushNamed(SignupScreen.routeName),
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed(SignupScreen.routeName),
                     child: const Text('Create account'),
                   ),
                   const SizedBox(height: 8),
-                  const Text('Admin credentials: admin@admin.com / admin123', style: TextStyle(fontSize: 12)),
+                  const Text('Admin credentials: admin@admin.com / admin123',
+                      style: TextStyle(fontSize: 12)),
                 ]),
               ),
             ),

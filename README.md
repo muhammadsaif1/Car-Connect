@@ -11,7 +11,7 @@ Built to simplify car rentals by connecting **customers, car owners, and drivers
 With this app, users can browse, book, and manage everything directly from their phone.  
 
 Car owners can also list their cars for rent, and verified drivers can offer their services.  
-The app functions **fully offline** using local Hive storage for data management.
+The app functions **fully offline** using local Sqlilite storage for data management.
 
 ---
 
@@ -22,7 +22,7 @@ The app functions **fully offline** using local Hive storage for data management
 - Choose car with or without a driver  
 - Upload and verify NIC and license (stored locally)  
 - Make and manage bookings  
-- Works offline using Hive  
+- Works offline using Sqlilite  
 
 ### 🚘 Car Owner Features
 - Add, edit, or delete car listings  
@@ -45,10 +45,10 @@ Each module is responsible for its specific task — such as models for data str
 
 ---
 
-## 🗃️ Local Database – Hive
+## 🗃️ Local Database – Sqlilite
 
-The app uses **Hive** — a fast, lightweight NoSQL database — for offline data storage.  
-All data is stored locally on the user’s device in Hive “boxes.”
+The app uses **Sqlilite** — a fast, lightweight NoSQL database — for offline data storage.  
+All data is stored locally on the user’s device in Sqlilite “boxes.”
 
 | Box | Description |
 |------|-------------|
@@ -57,7 +57,7 @@ All data is stored locally on the user’s device in Hive “boxes.”
 | `driversBox` | Stores registered driver profiles |
 | `bookingsBox` | Stores all rental and driver booking records |
 
-### ✅ Why Hive?
+### ✅ Why Sqlilite?
 - Fully offline and lightweight  
 - No complex setup or SQL queries  
 - Instant read/write performance  
@@ -71,7 +71,7 @@ All data is stored locally on the user’s device in Hive “boxes.”
 | Category | Tools / Frameworks |
 |-----------|--------------------|
 | **Frontend** | Flutter (Dart) |
-| **Local Database** | Hive |
+| **Local Database** | Sqlilite |
 | **State Management** | Provider |
 | **UI Framework** | Material Design |
 | **IDE** | Android Studio / VS Code |
